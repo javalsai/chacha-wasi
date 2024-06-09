@@ -1,11 +1,26 @@
+cargo-features = ["profile-rustflags", "trim-paths"]
+
 [package]
 name = "chacha-wasi"
 version = "0.1.0"
 edition = "2021"
 
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = 3
+panic = "abort"
+rustflags = ["-Zlocation-detail=none", "-Ctarget-cpu=native", "-Ctarget-feature=" ]
+strip = "symbols"
+trim-paths = true
+
+[package.metadata.wasm-pack.profile.release]
+# wasm-opt = ["-O3", "--optimize-for-js", "--optimize-casts", "--tuple-optimization", "--enable-simd"]
+wasm-opt = false
+
 [lib]
 crate-type = ["cdylib"]
 
 [dependencies]
-chacha20 = "0.9.1"
-wasm-bindgen = "0.2.92"
+chacha20 = { version = "0", default-features = false }
+wasm-bindgen = { version = "0", default-features = false, features = ["std"] }

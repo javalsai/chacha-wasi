@@ -1,8 +1,8 @@
-use wasm_bindgen::prelude::*;
 use chacha20::{
     cipher::{Iv, KeyIvInit, StreamCipher},
     ChaCha20, Key, Nonce,
 };
+use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 pub struct Cipher {
