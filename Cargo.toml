@@ -7,4 +7,5 @@ edition = "2021"
 crate-type = ["cdylib"]
 
 [dependencies]
+chacha20 = "0.9.1"
 wasm-bindgen = "0.2.92"
