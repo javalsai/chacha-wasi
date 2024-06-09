@@ -1,5 +1,5 @@
 use chacha20::{
-    cipher::{Iv, KeyIvInit, StreamCipher},
+    cipher::{Iv, KeyIvInit, StreamCipher, StreamCipherSeek},
     ChaCha20, Key, Nonce,
 };
 use wasm_bindgen::prelude::*;
@@ -28,5 +28,13 @@ impl Cipher {
 impl Cipher {
     pub fn transform(&mut self, data: &mut [u8]) {
         self.cipher.apply_keystream(data);
+    }
+}
+
+// misc utils
+#[wasm_bindgen]
+impl Cipher {
+    pub fn seek(&mut self, pos: usize) {
+        self.cipher.seek(pos);
     }
 }
