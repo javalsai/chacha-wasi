@@ -1,5 +1,6 @@
 {
   "type": "module",
+  "license": "GPL-2.0-only",
   "devDependencies": {
     "@types/bun": "latest"
   },

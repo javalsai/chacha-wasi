@@ -4,6 +4,7 @@ cargo-features = ["profile-rustflags", "trim-paths"]
 name = "chacha-wasi"
 version = "0.1.0"
 edition = "2021"
+license = "GPL-2.0-only"
 
 [profile.release]
 codegen-units = 1
