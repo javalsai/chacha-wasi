@@ -10,13 +10,14 @@ codegen-units = 1
 lto = true
 opt-level = 3
 panic = "abort"
-rustflags = ["-Zlocation-detail=none", "-Ctarget-cpu=native", "-Ctarget-feature=" ]
+# rustflags = ["-Zlocation-detail=none", "-Ctarget-cpu=native", "-Ctarget-feature=" ]
+rustflags = ["-Zlocation-detail=none", "-Ctarget-feature=" ]
 strip = "symbols"
 trim-paths = true
 
 [package.metadata.wasm-pack.profile.release]
-# wasm-opt = ["-O3", "--optimize-for-js", "--optimize-casts", "--tuple-optimization", "--enable-simd"]
-wasm-opt = false
+wasm-opt = ["-O4", "--optimize-for-js", "--optimize-casts", "--tuple-optimization", "--enable-simd"]
+# wasm-opt = false
 
 [lib]
 crate-type = ["cdylib"]
