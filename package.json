@@ -1,0 +1,14 @@
+{
+  "name": "chacha-wasi",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "postinstall": "wasm-pack build --target nodejs --release --weak-refs --mode no-install"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
